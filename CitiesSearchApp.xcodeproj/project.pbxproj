@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		40D314952C9535D1004F93BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D314942C9535D1004F93BB /* AppDelegate.swift */; };
 		40D314972C9535D1004F93BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D314962C9535D1004F93BB /* SceneDelegate.swift */; };
-		40D314992C9535D1004F93BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D314982C9535D1004F93BB /* ViewController.swift */; };
-		40D3149C2C9535D1004F93BB /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 40D3149B2C9535D1004F93BB /* Base */; };
 		40D3149F2C9535D1004F93BB /* CitiesSearchApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40D3149D2C9535D1004F93BB /* CitiesSearchApp.xcdatamodeld */; };
 		40D314A12C9535D2004F93BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40D314A02C9535D2004F93BB /* Assets.xcassets */; };
 		40D314A42C9535D2004F93BB /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 40D314A32C9535D2004F93BB /* Base */; };
@@ -40,8 +38,6 @@
 		40D314912C9535D1004F93BB /* CitiesSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CitiesSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40D314942C9535D1004F93BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40D314962C9535D1004F93BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		40D314982C9535D1004F93BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		40D3149B2C9535D1004F93BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40D3149E2C9535D1004F93BB /* CitiesSearchApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CitiesSearchApp.xcdatamodel; sourceTree = "<group>"; };
 		40D314A02C9535D2004F93BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40D314A32C9535D2004F93BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,8 +99,6 @@
 			children = (
 				40D314942C9535D1004F93BB /* AppDelegate.swift */,
 				40D314962C9535D1004F93BB /* SceneDelegate.swift */,
-				40D314982C9535D1004F93BB /* ViewController.swift */,
-				40D3149A2C9535D1004F93BB /* Main.storyboard */,
 				40D314A02C9535D2004F93BB /* Assets.xcassets */,
 				40D314A22C9535D2004F93BB /* LaunchScreen.storyboard */,
 				40D314A52C9535D2004F93BB /* Info.plist */,
@@ -236,7 +230,6 @@
 			files = (
 				40D314A12C9535D2004F93BB /* Assets.xcassets in Resources */,
 				40D314A42C9535D2004F93BB /* Base in Resources */,
-				40D3149C2C9535D1004F93BB /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				40D3149F2C9535D1004F93BB /* CitiesSearchApp.xcdatamodeld in Sources */,
-				40D314992C9535D1004F93BB /* ViewController.swift in Sources */,
 				40D314952C9535D1004F93BB /* AppDelegate.swift in Sources */,
 				40D314972C9535D1004F93BB /* SceneDelegate.swift in Sources */,
 			);
@@ -301,14 +293,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		40D3149A2C9535D1004F93BB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				40D3149B2C9535D1004F93BB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		40D314A22C9535D2004F93BB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -451,7 +435,6 @@
 				INFOPLIST_FILE = CitiesSearchApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -479,7 +462,6 @@
 				INFOPLIST_FILE = CitiesSearchApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
