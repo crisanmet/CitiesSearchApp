@@ -15,6 +15,9 @@
 		40D314AF2C9535D2004F93BB /* CitiesSearchAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D314AE2C9535D2004F93BB /* CitiesSearchAppTests.swift */; };
 		40D314B92C9535D2004F93BB /* CitiesSearchAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D314B82C9535D2004F93BB /* CitiesSearchAppUITests.swift */; };
 		40D314BB2C9535D2004F93BB /* CitiesSearchAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D314BA2C9535D2004F93BB /* CitiesSearchAppUITestsLaunchTests.swift */; };
+		40D314CA2C953830004F93BB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D314C92C953830004F93BB /* APIManager.swift */; };
+		40D314CD2C953909004F93BB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D314CC2C953909004F93BB /* Constants.swift */; };
+		40D314D02C953A7B004F93BB /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D314CF2C953A7B004F93BB /* CityModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		40D314B42C9535D2004F93BB /* CitiesSearchAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CitiesSearchAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40D314B82C9535D2004F93BB /* CitiesSearchAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesSearchAppUITests.swift; sourceTree = "<group>"; };
 		40D314BA2C9535D2004F93BB /* CitiesSearchAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesSearchAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		40D314C92C953830004F93BB /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		40D314CC2C953909004F93BB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		40D314CF2C953A7B004F93BB /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 		40D314932C9535D1004F93BB /* CitiesSearchApp */ = {
 			isa = PBXGroup;
 			children = (
+				40D314C72C953811004F93BB /* App */,
 				40D314942C9535D1004F93BB /* AppDelegate.swift */,
 				40D314962C9535D1004F93BB /* SceneDelegate.swift */,
 				40D314A02C9535D2004F93BB /* Assets.xcassets */,
@@ -122,6 +129,40 @@
 				40D314BA2C9535D2004F93BB /* CitiesSearchAppUITestsLaunchTests.swift */,
 			);
 			path = CitiesSearchAppUITests;
+			sourceTree = "<group>";
+		};
+		40D314C72C953811004F93BB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				40D314CB2C9538FA004F93BB /* Constants */,
+				40D314C82C953819004F93BB /* Managers */,
+				40D314CE2C953A5F004F93BB /* Models */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		40D314C82C953819004F93BB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				40D314C92C953830004F93BB /* APIManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		40D314CB2C9538FA004F93BB /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				40D314CC2C953909004F93BB /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		40D314CE2C953A5F004F93BB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				40D314CF2C953A7B004F93BB /* CityModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +295,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40D314CD2C953909004F93BB /* Constants.swift in Sources */,
+				40D314CA2C953830004F93BB /* APIManager.swift in Sources */,
+				40D314D02C953A7B004F93BB /* CityModel.swift in Sources */,
 				40D3149F2C9535D1004F93BB /* CitiesSearchApp.xcdatamodeld in Sources */,
 				40D314952C9535D1004F93BB /* AppDelegate.swift in Sources */,
 				40D314972C9535D1004F93BB /* SceneDelegate.swift in Sources */,
