@@ -29,3 +29,15 @@ struct CoordinateModel: Codable {
         case latitude = "lat"
     }
 }
+
+extension CityModel {
+    static var mock: CityModel = .init(id: 1, country: "Argentina", name: "Bs As", coordinate: .init(longitude: 223434, latitude: 324242))
+    
+    var title: String {
+        "\(name), \(country)"
+    }
+    
+    var subtitle: String {
+        "Lat: \(coordinate.latitude), Lon: \(coordinate.longitude)"
+    }
+}
