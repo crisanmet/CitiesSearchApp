@@ -16,7 +16,7 @@ struct CityRowView: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 12) {
                 Text(city.title)
                     .font(.headline)
                 Text(city.subtitle)
@@ -25,26 +25,32 @@ struct CityRowView: View {
             
             Spacer()
             
-            Button(action: {
-                isFavorite.toggle()
-                onFavoriteToggle()
-            }) {
-                Image(systemName: isFavorite ? "heart.fill" : "heart")
-                    .foregroundColor(isFavorite ? .red : .gray)
+            VStack(spacing: 8) {
+                Button(action: {
+                    isFavorite.toggle()
+                    onFavoriteToggle()
+                }) {
+                    Image(systemName: isFavorite ? "heart.fill" : "heart")
+                        .foregroundColor(isFavorite ? .red : .gray)
+                        .font(.title2)
+                }
+                
+                Button(action: {
+                    onInfoTap()
+                }) {
+                    Text("View more info")
+                        .foregroundColor(.blue)
+                }
             }
-            
-            Button(action: {
-                onInfoTap()
-            }) {
-                Text("View more info")
-                    .foregroundColor(.blue)
-            }
+   
         }
         .padding()
         .contentShape(Rectangle())
+        .background(.indigo.opacity(0.2))
         .onTapGesture {
             onCardTap()
         }
+        .padding(.horizontal, 12)
     }
 }
 
