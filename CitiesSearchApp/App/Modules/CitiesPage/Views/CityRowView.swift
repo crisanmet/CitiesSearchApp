@@ -11,7 +11,7 @@ struct CityRowView: View {
     let city: CityModel
     @State var isFavorite: Bool
     let onFavoriteToggle: () -> Void
-    let onMapTap: () -> Void
+    let onCardTap: () -> Void
     let onInfoTap: () -> Void
     
     var body: some View {
@@ -41,12 +41,13 @@ struct CityRowView: View {
             }
         }
         .padding()
+        .contentShape(Rectangle())
         .onTapGesture {
-            onMapTap()
+            onCardTap()
         }
     }
 }
 
 #Preview {
-    CityRowView(city: .mock, isFavorite: true, onFavoriteToggle: { }, onMapTap: { }, onInfoTap: { })
+    CityRowView(city: .mock, isFavorite: true, onFavoriteToggle: { }, onCardTap: { }, onInfoTap: { })
 }

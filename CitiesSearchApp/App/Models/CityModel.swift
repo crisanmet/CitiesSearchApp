@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct CityModel: Identifiable, Codable {
     let id: Int
@@ -30,8 +31,16 @@ struct CoordinateModel: Codable {
     }
 }
 
+// MARK: Mocks
 extension CityModel {
     static var mock: CityModel = .init(id: 1, country: "Argentina", name: "Bs As", coordinate: .init(longitude: 223434, latitude: 324242))
+}
+
+// MARK: Computed Properties
+extension CityModel {
+    var locationCoordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
+    }
     
     var title: String {
         "\(name), \(country)"

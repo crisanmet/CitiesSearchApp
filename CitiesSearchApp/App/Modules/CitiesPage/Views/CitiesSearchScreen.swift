@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CitiesSearchScreen: View {
     @StateObject private var viewModel = CitiesViewModel()
+    @Environment(\.navigationHandling) var navigator
     
     var body: some View {
         NavigationStack {
@@ -43,8 +44,8 @@ struct CitiesSearchScreen: View {
                 onFavoriteToggle: {
                     // todo
                 },
-                onMapTap: {
-                    // todo
+                onCardTap: {
+                    navigator?.pushView(MapView(viewModel: .init(city: city)))
                 },
                 onInfoTap: {
                     // todo

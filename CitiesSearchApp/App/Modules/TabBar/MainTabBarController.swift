@@ -16,8 +16,14 @@ final class MainTabBarController: UITabBarController {
     }
     
     private func setupTabs() {
-        let citiesSearchVC = CitiesSearchScreen().embeddedInHostingController()
-        let favouritesVC = FavouritesScreen().embeddedInHostingController()
+        let citiesView = CitiesSearchScreen()
+            .environment(\.navigationHandling, DefaultNavigationHandling(mainViewController: self))
+        
+        let favouritesView = FavouritesScreen()
+            .environment(\.navigationHandling, DefaultNavigationHandling(mainViewController: self))
+        
+        let citiesSearchVC = citiesView.embeddedInHostingController()
+        let favouritesVC = favouritesView.embeddedInHostingController()
         
         citiesSearchVC.tabBarItem.image = UIImage(systemName: "house")
         favouritesVC.tabBarItem.image = UIImage(systemName: "heart")
