@@ -22,8 +22,9 @@ struct DefaultNavigationHandling: NavigationHandling {
     
     func presentView(_ view: some View) {
         let viewController = view.embeddedInHostingController()
-        mainViewController.sheetPresentationController?.detents = [.medium(), .large()]
-        mainViewController.sheetPresentationController?.prefersGrabberVisible = true
+        viewController.modalPresentationStyle = .pageSheet
+        viewController.sheetPresentationController?.detents = [.medium()]
+        viewController.sheetPresentationController?.prefersGrabberVisible = true
         mainViewController.navigationController?.present(viewController, animated: true)
     }
 }

@@ -48,7 +48,7 @@ struct CitiesSearchScreen: View {
                     navigator?.pushView(MapView(viewModel: .init(city: city)))
                 },
                 onInfoTap: {
-                    // todo
+                    handleInfoTapped(city)
                 }
             )
         }
@@ -59,6 +59,15 @@ struct CitiesSearchScreen: View {
             .font(.headline)
             .foregroundColor(.gray)
             .padding()
+    }
+    
+    private func handleInfoTapped(_ city: CityModel) {
+        let view = InfoView(city: city)
+        if UIDevice.current.orientation.isLandscape {
+            navigator?.pushView(view)
+        } else {
+            navigator?.presentView(view)
+        }
     }
 }
 
