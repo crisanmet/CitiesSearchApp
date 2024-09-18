@@ -50,7 +50,6 @@ struct CityRowView: View {
         .onTapGesture {
             onCardTap()
         }
-        .padding(.horizontal, 12)
     }
 }
 

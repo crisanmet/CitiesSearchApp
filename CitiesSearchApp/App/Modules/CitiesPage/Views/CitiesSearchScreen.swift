@@ -9,24 +9,16 @@ import SwiftUI
 
 struct CitiesSearchScreen: View {
     @StateObject private var viewModel = CitiesViewModel()
+    @State private var orientation = UIDeviceOrientation.portrait
+    @State private var selectedCity: CityModel?
     @Environment(\.navigationHandling) var navigator
     
     var body: some View {
-        NavigationStack {
-            AsyncContentView(source: viewModel) {
-                ScrollView {
-                    LazyVStack {
-                        citiesList
-                    }
-                }
-                .overlay {
-                    if viewModel.filteredCities.isEmpty {
-                        nothingFound
-                    }
-                }
-            }
-            .navigationTitle("Cities")
-            .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for cities...")
+        AsyncContentView(source: viewModel) {
+            viewForDeviceOrientation
+        }     
+        .onRotate { newOrientation in
+            orientation = newOrientation
         }
         .onFirstAppear {
             Task {
@@ -35,6 +27,51 @@ struct CitiesSearchScreen: View {
         }
     }
     
+    @ViewBuilder
+    private var viewForDeviceOrientation: some View {
+        if orientation.isLandscape {
+            HStack {
+                NavigationStack {
+                    citiesListView
+                }
+                .frame(width: UIScreen.size.width * 0.5)
+                
+                mapView
+                    .frame(width: UIScreen.size.width * 0.5)
+            }
+        } else {
+            NavigationStack {
+                citiesListView
+            }
+        }
+    }
+    
+    private var citiesListView: some View {
+        ScrollView {
+            LazyVStack {
+                citiesList
+                    .padding(.horizontal, orientation.isPortrait ? 12 : 0)
+            }
+        }
+        .overlay {
+            if viewModel.filteredCities.isEmpty {
+                nothingFound
+            }
+        }   
+        .navigationTitle("Cities")
+        .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for cities...")
+    }
+    
+    @ViewBuilder
+    private var mapView: some View {
+        if let selectedCity {
+            MapView(viewModel: .init(city: selectedCity))
+                .id(selectedCity.id)
+        } else if let firstCity = viewModel.filteredCities.first {
+            MapView(viewModel: .init(city: firstCity))
+                .id(firstCity.id)
+        }
+    }
     
     private var citiesList: some View {
         ForEach(viewModel.filteredCities) { city in
@@ -45,7 +82,7 @@ struct CitiesSearchScreen: View {
                     // todo
                 },
                 onCardTap: {
-                    navigator?.pushView(MapView(viewModel: .init(city: city)))
+                    handleCardTapped(city)
                 },
                 onInfoTap: {
                     handleInfoTapped(city)
@@ -59,6 +96,14 @@ struct CitiesSearchScreen: View {
             .font(.headline)
             .foregroundColor(.gray)
             .padding()
+    }
+    
+    private func handleCardTapped(_ city: CityModel) {
+        if orientation.isLandscape {
+            selectedCity = city
+        } else {
+            navigator?.pushView(MapView(viewModel: .init(city: city)))
+        }
     }
     
     private func handleInfoTapped(_ city: CityModel) {
