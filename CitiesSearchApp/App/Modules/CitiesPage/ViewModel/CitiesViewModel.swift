@@ -13,8 +13,8 @@ final class CitiesViewModel: Loadable {
     @Published var searchText: String = ""
     @Published var filteredCities: [CityModel] = []
     @Published var showFavoritesOnly: Bool = false
-
-    var state: LoadingState = .loading
+    @Published  var state: LoadingState = .loading
+    
     private var manager: CitiesManager
     private var cancellables = Set<AnyCancellable>()
     
@@ -56,12 +56,9 @@ final class CitiesViewModel: Loadable {
     
     @MainActor
     func loadData() async {
-        defer {
-            state = .loaded
-        }
-        
         do {
             cities = try await manager.loadCities()
+            state = .loaded
         } catch APIError.noInternetConnection {
             state = .failed(errorTitle: "Oops! No internet connection")
         } catch {
