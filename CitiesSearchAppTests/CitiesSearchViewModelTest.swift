@@ -92,12 +92,21 @@ final class CitiesSearchViewModelTest: XCTestCase {
         
         await sut.loadData()
         sut.searchText = "H"
-        XCTAssertEqual(sut.filteredCities.first?.name, "Hurzuf")
+        XCTAssertEqual(sut.filteredCities.first?.name, "Holubynka") // Order matters.
         XCTAssertEqual(sut.filteredCities.count, 2)
         
         sut.searchText = "hu" // case sensitive
         XCTAssertEqual(sut.filteredCities.first?.name, "Hurzuf")
         XCTAssertNotEqual(sut.filteredCities.count, 2)
         XCTAssertEqual(sut.filteredCities.count, 1)
+    }
+    
+    func testFilteringCitiesWithEmptyString() async {
+        let mockData: [CityModel] = loadJSONFromBundle("mockCitiesResponse")
+        let sut = createSUT(withMockData: mockData)
+        
+        await sut.loadData()
+        sut.searchText = " "
+        XCTAssertTrue(sut.filteredCities.isEmpty)
     }
 }
