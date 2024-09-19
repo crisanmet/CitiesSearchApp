@@ -38,10 +38,11 @@ struct CitiesManager {
     
     func updateFavoriteStatus(for city: CityModel) {
         var favoriteCityIds = getFavoriteCityIds()
+        
         if city.isFavorite {
-            favoriteCityIds.insert(city.id)
-        } else {
             favoriteCityIds.remove(city.id)
+        } else {
+            favoriteCityIds.insert(city.id)
         }
         saveFavoriteCityIds(favoriteCityIds)
     }
