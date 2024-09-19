@@ -36,11 +36,19 @@ final class CitiesViewModel: Loadable {
     private func filterCities(searchText: String, cities: [CityModel], showFavoritesOnly: Bool) -> [CityModel] {
         let searchTextLowercased = searchText.lowercased()
         
-        return cities.filter { city in
-            let matchesSearchText = searchTextLowercased.isEmpty || city.name.lowercased().hasPrefix(searchTextLowercased)
-            let matchesFavoriteStatus = !showFavoritesOnly || city.isFavorite
-            return matchesSearchText && matchesFavoriteStatus
-        }  
+        let filteredCities = cities
+            .filter { city in
+                let nameMatches = searchTextLowercased.isEmpty || city.name.lowercased().hasPrefix(searchTextLowercased)
+                let favoriteMatches = !showFavoritesOnly || city.isFavorite
+                return nameMatches && favoriteMatches
+            }
+        
+        return filteredCities.sorted {
+            let nameComparison = $0.name.lowercased().compare($1.name.lowercased())
+            return nameComparison == .orderedSame
+            ? $0.country.lowercased() < $1.country.lowercased()
+            : nameComparison == .orderedAscending
+        }
     }
     
     func toggleFavorite(for city: CityModel) {
