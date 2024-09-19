@@ -10,7 +10,7 @@
 	4.	Combine Framework:
 Combine is used to automatically update the UI when search text, city list, or favorite status changes. Filtering and sorting operations are done in filterCities.
 
-## Areas to improve
+# Areas to improve
 
 	•	Data Size: The current approach assumes a manageable volume of city data. Pagination might be needed. Alternative use core data to save the cities array? And retrieving it with predicates. 
 	•	Performance: Initial performance is suitable, but further optimization may be required.
@@ -18,7 +18,7 @@ Combine is used to automatically update the UI when search text, city list, or f
 ## Project Structure
 
 	•	UIKit & SwiftUI Integration: The project starts with UIKit for core functionalities and navigation handlings, while SwiftUI is used for modern view components.
-  •	Models: CityModel and CoordinateModel.
+        •	Models: CityModel and CoordinateModel.
 	•	ViewModels: Manages data loading and filtering (CitiesViewModel).
 	•	Views: Displays city information.
 	•	Tests: Unit tests for functionality verification. Todo UI test cases.
