@@ -50,6 +50,7 @@ struct CityRowView: View {
         .background(.indigo.opacity(0.2))
         .onTapGesture {
             onCardTap()
+            UIApplication.shared.endEditing()
         }
     }
 }
