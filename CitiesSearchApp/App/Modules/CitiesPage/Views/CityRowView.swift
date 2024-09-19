@@ -32,6 +32,7 @@ struct CityRowView: View {
                 }) {
                     Image(systemName: isFavorite ? "heart.fill" : "heart")
                         .foregroundColor(isFavorite ? .red : .gray)
+                        .scaleEffect(isFavorite ? 1.2 : 1.0)
                         .font(.title2)
                 }
                 
