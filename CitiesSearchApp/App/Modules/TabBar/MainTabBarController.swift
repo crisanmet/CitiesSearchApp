@@ -19,19 +19,11 @@ final class MainTabBarController: UITabBarController {
         let citiesView = CitiesSearchScreen()
             .environment(\.navigationHandling, DefaultNavigationHandling(mainViewController: self))
         
-        let favouritesView = FavouritesScreen()
-            .environment(\.navigationHandling, DefaultNavigationHandling(mainViewController: self))
-        
         let citiesSearchVC = citiesView.embeddedInHostingController()
-        let favouritesVC = favouritesView.embeddedInHostingController()
-        
         citiesSearchVC.tabBarItem.image = UIImage(systemName: "house")
-        favouritesVC.tabBarItem.image = UIImage(systemName: "heart")
-        
         citiesSearchVC.title = "Cities"
-        favouritesVC.title = "Favoritos"
         
-        setViewControllers([citiesSearchVC, favouritesVC], animated: true)
+        setViewControllers([citiesSearchVC], animated: true)
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
