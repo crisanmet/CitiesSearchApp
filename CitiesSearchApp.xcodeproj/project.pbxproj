@@ -10,6 +10,7 @@
 		4014C4802C99FE4300F05AAA /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4014C47F2C99FE4300F05AAA /* MapViewModel.swift */; };
 		4014C4832C9A38A400F05AAA /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4014C4822C9A38A400F05AAA /* InfoView.swift */; };
 		4014C4CD2C9A76AF00F05AAA /* DeviceRotationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4014C4CC2C9A76AF00F05AAA /* DeviceRotationViewModifier.swift */; };
+		401B6D392C9BC4970028045A /* CitiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B6D382C9BC4970028045A /* CitiesManager.swift */; };
 		4022FF332C9A801500E3677C /* UIScreen+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4022FF322C9A801500E3677C /* UIScreen+Extras.swift */; };
 		404FBD1D2C991EDD00E04BDD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404FBD1C2C991EDD00E04BDD /* MainTabBarController.swift */; };
 		404FBD202C991F2B00E04BDD /* CitiesSearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404FBD1F2C991F2B00E04BDD /* CitiesSearchScreen.swift */; };
@@ -57,6 +58,7 @@
 		4014C47F2C99FE4300F05AAA /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		4014C4822C9A38A400F05AAA /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		4014C4CC2C9A76AF00F05AAA /* DeviceRotationViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRotationViewModifier.swift; sourceTree = "<group>"; };
+		401B6D382C9BC4970028045A /* CitiesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesManager.swift; sourceTree = "<group>"; };
 		4022FF322C9A801500E3677C /* UIScreen+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extras.swift"; sourceTree = "<group>"; };
 		404FBD1C2C991EDD00E04BDD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		404FBD1F2C991F2B00E04BDD /* CitiesSearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesSearchScreen.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				40D314C92C953830004F93BB /* APIManager.swift */,
+				401B6D382C9BC4970028045A /* CitiesManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				40D314D02C953A7B004F93BB /* CityModel.swift in Sources */,
 				404FBD1D2C991EDD00E04BDD /* MainTabBarController.swift in Sources */,
 				40D3149F2C9535D1004F93BB /* CitiesSearchApp.xcdatamodeld in Sources */,
+				401B6D392C9BC4970028045A /* CitiesManager.swift in Sources */,
 				40D314952C9535D1004F93BB /* AppDelegate.swift in Sources */,
 				404FBD282C9920EC00E04BDD /* CitiesViewModel.swift in Sources */,
 				404FBD312C99233C00E04BDD /* OnFirstAppearModifier.swift in Sources */,

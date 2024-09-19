@@ -59,6 +59,8 @@ struct CitiesSearchScreen: View {
             }
         }   
         .navigationTitle("Cities")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(trailing: Toggle("Show Favorites", isOn: $viewModel.showFavoritesOnly))
         .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for cities...")
     }
     
@@ -77,9 +79,9 @@ struct CitiesSearchScreen: View {
         ForEach(viewModel.filteredCities) { city in
             CityRowView(
                 city: city,
-                isFavorite: false, // todo
+                isFavorite: city.isFavorite,
                 onFavoriteToggle: {
-                    // todo
+                    viewModel.toggleFavorite(for: city)
                 },
                 onCardTap: {
                     handleCardTapped(city)

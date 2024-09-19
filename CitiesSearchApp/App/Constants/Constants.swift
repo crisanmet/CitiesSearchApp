@@ -12,4 +12,8 @@ struct Constants {
     struct Config {
         static let apiUrl = "https://gist.githubusercontent.com"
     }
+    
+    struct UserDefaultKeys {
+        static let favoriteCityIds = "favoriteCityIds"
+    }
 }
