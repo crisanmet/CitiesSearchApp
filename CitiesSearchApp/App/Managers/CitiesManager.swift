@@ -36,9 +36,9 @@ struct CitiesManager {
         userDefaults.set(Array(ids), forKey: Constants.UserDefaultKeys.favoriteCityIds)
     }
     
-    func updateFavoriteStatus(for city: CityModel, isFavorite: Bool) {
+    func updateFavoriteStatus(for city: CityModel) {
         var favoriteCityIds = getFavoriteCityIds()
-        if isFavorite {
+        if city.isFavorite {
             favoriteCityIds.insert(city.id)
         } else {
             favoriteCityIds.remove(city.id)

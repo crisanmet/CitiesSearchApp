@@ -44,12 +44,11 @@ final class CitiesViewModel: Loadable {
     }
     
     func toggleFavorite(for city: CityModel) {
-        let isFavorite = !city.isFavorite
-        manager.updateFavoriteStatus(for: city, isFavorite: isFavorite)
+        manager.updateFavoriteStatus(for: city)
         
         // Update local city model
         if let index = cities.firstIndex(where: { $0.id == city.id }) {
-            cities[index].isFavorite = isFavorite
+            cities[index].isFavorite = !city.isFavorite
         }
     }
 
