@@ -63,6 +63,7 @@ final class CitiesViewModel: Loadable {
     
     @MainActor
     func loadData() async {
+        state = .loading
         do {
             cities = try await manager.loadCities()
             state = .loaded
