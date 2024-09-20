@@ -34,21 +34,19 @@ final class CitiesViewModel: Loadable {
     }
     
     private func filterCities(searchText: String, cities: [CityModel], showFavoritesOnly: Bool) -> [CityModel] {
+        guard !searchText.isEmpty else {
+            return showFavoritesOnly ? cities.filter { $0.isFavorite } : cities
+        }
+        
         let searchTextLowercased = searchText.lowercased()
         
-        let filteredCities = cities
-            .filter { city in
-                let nameMatches = searchTextLowercased.isEmpty || city.name.lowercased().hasPrefix(searchTextLowercased)
-                let favoriteMatches = !showFavoritesOnly || city.isFavorite
-                return nameMatches && favoriteMatches
-            }
-        
-        return filteredCities.sorted {
-            let nameComparison = $0.name.lowercased().compare($1.name.lowercased())
-            return nameComparison == .orderedSame
-            ? $0.country.lowercased() < $1.country.lowercased()
-            : nameComparison == .orderedAscending
+        let filteredCities = cities.filter { city in
+            let nameMatches = city.name.lowercased().hasPrefix(searchTextLowercased)
+            let favoriteMatches = !showFavoritesOnly || city.isFavorite
+            return nameMatches && favoriteMatches
         }
+        
+        return filteredCities.sorted()
     }
     
     func toggleFavorite(for city: CityModel) {
@@ -65,7 +63,8 @@ final class CitiesViewModel: Loadable {
     func loadData() async {
         state = .loading
         do {
-            cities = try await manager.loadCities()
+            let cities = try await manager.loadCities()
+            self.cities = cities.sorted()
             state = .loaded
         } catch APIError.noInternetConnection {
             state = .failed(errorTitle: "Oops! No internet connection")

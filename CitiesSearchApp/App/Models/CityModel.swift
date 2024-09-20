@@ -22,6 +22,22 @@ struct CityModel: Identifiable, Codable {
     }
 }
 
+extension CityModel: Comparable {
+    static func == (lhs: CityModel, rhs: CityModel) -> Bool {
+        lhs.id == rhs.id && lhs.name.lowercased() == rhs.name.lowercased()
+    }
+    
+    static func < (lhs: CityModel, rhs: CityModel) -> Bool {
+        let nameComparison = lhs.name.caseInsensitiveCompare(rhs.name)
+        
+        if nameComparison == .orderedSame {
+            return lhs.country.caseInsensitiveCompare(rhs.country) == .orderedAscending
+        }
+        
+        return nameComparison == .orderedAscending
+    }
+}
+
 struct CoordinateModel: Codable {
     let longitude: Double
     let latitude: Double
